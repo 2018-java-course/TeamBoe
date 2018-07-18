@@ -28,7 +28,8 @@ public class MainClass {
         members.forEach(s -> System.out.println(s.getId()));
         
         BeerEventManager bManager = new BeerEventManager();
-        ArrayList<BeerEvent> events = new ArrayList<>();
+        ArrayList<CalendarEvent> events = new ArrayList<>();
+        bManager.populate(events);
     }
     
     
