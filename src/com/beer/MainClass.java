@@ -1,7 +1,7 @@
 package com.beer;
 import calendar.api.*;
 import java.util.ArrayList;
-import utils.BeerEventManager;
+import com.beer.utils.BeerEventManager;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -29,7 +29,6 @@ public class MainClass {
         
         BeerEventManager bManager = new BeerEventManager();
         ArrayList<BeerEvent> events = new ArrayList<>();
-        bManager.populate();
     }
     
     
