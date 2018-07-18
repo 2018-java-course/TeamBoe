@@ -22,12 +22,40 @@ public abstract class Person {
         this.cash = cash;
     }
     
+    public abstract void drink();
+    public abstract void buyDrink();
+    
     public boolean isAdult(){
         if(age < 18)
             return false;
         else return true;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public double getCash() {
+        return cash;
+    }
+
+    public void setCash(double cash) {
+        this.cash = cash;
+    }
     
-    public abstract void drink();
+    
+    
     
 }
