@@ -9,11 +9,12 @@ package com.beer;
  *
  * @author PC17
  */
+
+ //the participant has its own id that is unique for each instance
 public class Participant extends Person {
     private int id;
     private static int idCounter = 0;
 
-    //the participant has its own id that is unique for each instance
     public Participant() {
         updateID();
     }
@@ -36,8 +37,4 @@ public class Participant extends Person {
         return id;
     }
 
-    @Override
-    public void buyDrink() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }

@@ -21,6 +21,43 @@ public class BeerEvent implements calendar.api.CalendarEvent{
     private String category;
     private String location;
 
+    
+    public BeerEvent(){
+        
+    }
+
+    public BeerEvent(String title, LocalDate startDate, LocalDate endDate, String category, String location) {
+        this.title = title;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.category = category;
+        this.location = location;
+    }
+    
+    
+    
+    //setters and getters
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setStartDate(LocalDate startDate) {
+        this.startDate = startDate;
+    }
+
+    public void setEndDate(LocalDate endDate) {
+        this.endDate = endDate;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    
     @Override
     public String getTitle() {
         return title;

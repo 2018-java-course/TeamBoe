@@ -23,7 +23,15 @@ public abstract class Person {
     }
     
     public abstract void drink();
-    public abstract void buyDrink();
+    
+    public void buyDrink(Person p, Beer b){
+        if(b.getPrice() <= p.getCash())
+            System.out.println("Insufficient funds!");
+        else{
+            System.out.println("Beer bought!");
+            p.setCash(p.getCash() - b.getPrice());
+        }
+    }
     
     public boolean isAdult(){
         if(age < 18)
