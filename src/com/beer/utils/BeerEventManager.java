@@ -7,6 +7,7 @@ package com.beer.utils;
 
 import calendar.api.CalendarEvent;
 import com.beer.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -40,9 +41,18 @@ public class BeerEventManager implements calendar.api.CalendarEventDatabase {
     public void addEvent(){
         //TODO
         BeerEvent b = new BeerEvent();
+        System.out.println("What's the title of the event?");
+        b.setTitle(sc.nextLine());
+        System.out.println("Insert the start date");
+        
+        //adds the event to the list of events
         addEvent(b);
     }
+    
     public void addEvent(BeerEvent b){
+       
+        if(events.contains(b))
+            System.out.println("Event already present");
         events.add(b);
     }
     
