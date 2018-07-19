@@ -1,61 +1,73 @@
 package com.beer;
 
-
 import calendar.api.CalendarEventException;
 import java.time.LocalDate;
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 /**
  *
  * @author PC17
  */
-public class BeerEvent implements calendar.api.CalendarEvent{
+public class BeerEvent implements calendar.api.CalendarEvent, calendar.api.Displayable{
     private String title;
     private LocalDate startDate;
     private LocalDate endDate;
     private String category;
     private String location;
+    private String description;
 
     
-    public BeerEvent(){
+    private BeerEvent(){
+    }
+
+//    public BeerEvent(String title, LocalDate startDate, LocalDate endDate, String category, String location) {
+//        this.title = title;
+//        this.startDate = startDate;
+//        this.endDate = endDate;
+//        this.category = category;
+//        this.location = location;
+//    }
+    
+    //implementing the BuilderPattern 
+    public static class Builder{
+        private BeerEvent event;
         
-    }
+        public Builder(){
+            this.event = new BeerEvent();
+        }
+        
+        public Builder setTitle(String title){
+            this.event.title = title;
+            return this;
+        }
+        
+        public Builder setStartDate(LocalDate startDate) {
+            this.event.startDate = startDate;
+            return this;
+        }
 
-    public BeerEvent(String title, LocalDate startDate, LocalDate endDate, String category, String location) {
-        this.title = title;
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.category = category;
-        this.location = location;
+        public Builder setEndDate(LocalDate endDate) {
+            this.event.endDate = endDate;
+            return this;
+        }
+
+        public Builder setCategory(String category) {
+            this.event.category = category;
+            return this;
+        }
+
+        public Builder setLocation(String location) {
+            this.event.location = location;
+            return this;
+        }
+        
+        public BeerEvent build(){
+            return this.event;
+        }
     }
-    
-    
     
     //setters and getters
-    public void setTitle(String title) {
-        this.title = title;
-    }
 
-    public void setStartDate(LocalDate startDate) {
-        this.startDate = startDate;
-    }
-
-    public void setEndDate(LocalDate endDate) {
-        this.endDate = endDate;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
+    
 
     
     @Override
@@ -81,6 +93,11 @@ public class BeerEvent implements calendar.api.CalendarEvent{
     @Override
     public String getLocation() throws CalendarEventException {
         return location;
+    }
+
+    @Override
+    public String getDescription() {
+        return description;
     }
     
 }
