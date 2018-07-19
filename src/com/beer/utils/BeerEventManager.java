@@ -24,7 +24,6 @@ public class BeerEventManager implements calendar.api.CalendarEventDatabase {
         switch (choice) {
             case 1:
                 addEvent();
-                viewEvents();
                 break;
             case 2:
                 deleteEvent();
@@ -68,6 +67,15 @@ public class BeerEventManager implements calendar.api.CalendarEventDatabase {
     }
 
     public void deleteEvent() {
+        viewEvents();
+        System.out.println("Input the name of the event to delete");
+        final String name = txtUtils.readString();
+        System.out.println("Input the location of the event do delete");
+        final String location = txtUtils.readString();
+
+        //checks if the event exists and deletes it from the list
+        events.removeIf(e -> e.getTitle().equals(name) && e.getLocation().equals(location));
+        viewEvents();
 
     }
 
@@ -81,6 +89,8 @@ public class BeerEventManager implements calendar.api.CalendarEventDatabase {
     }
 
     public void viewEvents() {
+        System.out.println("#######Events#######");
         events.forEach(b -> System.out.println(b.toString()));
+        System.out.println("#######End#######");
     }
 }

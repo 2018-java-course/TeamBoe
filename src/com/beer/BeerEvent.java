@@ -1,6 +1,5 @@
 package com.beer;
 
-import calendar.api.CalendarEventException;
 import java.time.LocalDate;
 
 /**
@@ -92,7 +91,7 @@ public class BeerEvent implements calendar.api.CalendarEvent, calendar.api.Displ
     }
 
     @Override
-    public String getLocation() throws CalendarEventException {
+    public String getLocation() {
         return location;
     }
 

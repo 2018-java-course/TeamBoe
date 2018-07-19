@@ -31,10 +31,12 @@ public class MainClass {
         BeerEventManager bManager = new BeerEventManager();
         ArrayList<CalendarEvent> events = new ArrayList<>();
         bManager.addEvent(new BeerEvent.Builder()
-                .setTitle("test")
+                .setTitle("beerfest")
                 .setCategory("fun")
-                .setDescription("desc")
+                .setDescription("a festival")
+                .setLocation("naples")
                 .build());
+
         bManager.populate(events);
     }
 
