@@ -36,6 +36,10 @@ public class BeerEventManager implements calendar.api.CalendarEventDatabase {
             case 2:
                 deleteEvent();
                 break;
+            case 3:
+                System.out.println("In the case 3");
+                viewEvents();
+                break;
             default:
                 System.out.println("Input not valid!");
         }
@@ -56,8 +60,11 @@ public class BeerEventManager implements calendar.api.CalendarEventDatabase {
         event.setCategory(txtUtils.readString());
         System.out.println("Input the start date");
         event.setStartDate(txtUtils.readDate());
+        System.out.println("Input the end date");
+        event.setEndDate(txtUtils.readDate());
 
-        //adds the event to the list of events
+        //builds the event and adds it to the list
+        events.add(event.build());
     }
 
     public void addEvent(BeerEvent b) {
@@ -79,5 +86,9 @@ public class BeerEventManager implements calendar.api.CalendarEventDatabase {
         System.out.println("3)View events");
         int choice = txtUtils.readInt();
         return choice;
+    }
+
+    public void viewEvents() {
+        events.forEach(b -> System.out.println(b.toString()));
     }
 }
