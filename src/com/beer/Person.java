@@ -34,9 +34,10 @@ public abstract class Person {
     }
     
     public boolean isAdult(){
-        if(age < 18)
+        /*if(age < 18)
             return false;
-        else return true;
+        else return true;*/
+        return age >= 18;
     }
 
     public String getName() {
