@@ -7,7 +7,8 @@ import java.time.LocalDate;
  *
  * @author PC17
  */
-public class BeerEvent implements calendar.api.CalendarEvent, calendar.api.Displayable{
+public class BeerEvent implements calendar.api.CalendarEvent, calendar.api.Displayable {
+
     private String title;
     private LocalDate startDate;
     private LocalDate endDate;
@@ -15,8 +16,7 @@ public class BeerEvent implements calendar.api.CalendarEvent, calendar.api.Displ
     private String location;
     private String description;
 
-    
-    private BeerEvent(){
+    private BeerEvent() {
     }
 
 //    public BeerEvent(String title, LocalDate startDate, LocalDate endDate, String category, String location) {
@@ -26,20 +26,20 @@ public class BeerEvent implements calendar.api.CalendarEvent, calendar.api.Displ
 //        this.category = category;
 //        this.location = location;
 //    }
-    
     //implementing the BuilderPattern design
-    public static class Builder{
+    public static class Builder {
+
         private BeerEvent event;
-        
-        public Builder(){
+
+        public Builder() {
             this.event = new BeerEvent();
         }
-        
-        public Builder setTitle(String title){
+
+        public Builder setTitle(String title) {
             this.event.title = title;
             return this;
         }
-        
+
         public Builder setStartDate(LocalDate startDate) {
             this.event.startDate = startDate;
             return this;
@@ -59,17 +59,17 @@ public class BeerEvent implements calendar.api.CalendarEvent, calendar.api.Displ
             this.event.location = location;
             return this;
         }
-        
-        public Builder setDescription(String description){
+
+        public Builder setDescription(String description) {
             this.event.description = description;
             return this;
         }
-        
-        public BeerEvent build(){
+
+        public BeerEvent build() {
             return this.event;
         }
     }
-    
+
     //getters
     @Override
     public String getTitle() {
@@ -100,5 +100,5 @@ public class BeerEvent implements calendar.api.CalendarEvent, calendar.api.Displ
     public String getDescription() {
         return description;
     }
-    
+
 }
