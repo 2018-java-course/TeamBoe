@@ -30,14 +30,13 @@ public class BeerEventManager implements calendar.api.CalendarEventDatabase {
         //handling the various choices
         switch (choice) {
             case 1:
-                System.out.println("(In the case 1)");
                 addEvent();
+                viewEvents();
                 break;
             case 2:
                 deleteEvent();
                 break;
             case 3:
-                System.out.println("In the case 3");
                 viewEvents();
                 break;
             default:

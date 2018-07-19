@@ -101,4 +101,10 @@ public class BeerEvent implements calendar.api.CalendarEvent, calendar.api.Displ
         return description;
     }
 
+    @Override
+    public String toString() {
+        return "BeerEvent{" + "title=" + title + ", startDate=" + startDate
+                + ", endDate=" + endDate + ", category=" + category
+                + ", location=" + location + ", description=" + description + '}';
+    }
 }
