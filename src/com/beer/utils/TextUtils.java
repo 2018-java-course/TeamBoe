@@ -14,6 +14,7 @@ public class TextUtils {
     private static TextUtils instance = new TextUtils();
     private Scanner sc = new Scanner(System.in);
 
+    //singleton pattern
     private TextUtils() {
     }
 

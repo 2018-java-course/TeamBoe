@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.beer.utils;
 
 import calendar.api.CalendarEvent;
@@ -16,8 +11,6 @@ import java.util.ArrayList;
 public class BeerEventManager implements calendar.api.CalendarEventDatabase {
 
     private ArrayList<BeerEvent> events = new ArrayList<>();
-    //private Scanner sc = new Scanner(System.in);
-
     private TextUtils txtUtils = TextUtils.getInstance();
 
     @Override
