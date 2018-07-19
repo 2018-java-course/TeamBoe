@@ -27,7 +27,7 @@ public class BeerEvent implements calendar.api.CalendarEvent, calendar.api.Displ
 //        this.location = location;
 //    }
     
-    //implementing the BuilderPattern 
+    //implementing the BuilderPattern design
     public static class Builder{
         private BeerEvent event;
         
@@ -60,16 +60,17 @@ public class BeerEvent implements calendar.api.CalendarEvent, calendar.api.Displ
             return this;
         }
         
+        public Builder setDescription(String description){
+            this.event.description = description;
+            return this;
+        }
+        
         public BeerEvent build(){
             return this.event;
         }
     }
     
-    //setters and getters
-
-    
-
-    
+    //getters
     @Override
     public String getTitle() {
         return title;

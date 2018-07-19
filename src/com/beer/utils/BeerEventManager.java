@@ -7,26 +7,30 @@ package com.beer.utils;
 
 import calendar.api.CalendarEvent;
 import com.beer.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 /**
  *
  * @author PC17
  */
 public class BeerEventManager implements calendar.api.CalendarEventDatabase {
+
     private ArrayList<BeerEvent> events = new ArrayList<>();
-    private Scanner sc = new Scanner(System.in);
+    //private Scanner sc = new Scanner(System.in);
+
+    private TextUtils txtUtils = TextUtils.getInstance();
 
     @Override
     public void populate(ArrayList<CalendarEvent> events) {
         int choice = 0;
-        for(;choice <=0 || choice >= 4;)
+        for (; choice <= 0 || choice >= 4;) {
             choice = choiceMenu();
-        
-        switch(choice){
+        }
+
+        //handling the various choices
+        switch (choice) {
             case 1:
+                System.out.println("(In the case 1)");
                 addEvent();
                 break;
             case 2:
@@ -35,32 +39,45 @@ public class BeerEventManager implements calendar.api.CalendarEventDatabase {
             default:
                 System.out.println("Input not valid!");
         }
-        
+
     }
-    
-    public void addEvent(){
+
+    public void addEvent() {
         //TODO
-        
+        BeerEvent.Builder event = new BeerEvent.Builder();
+
+        System.out.println("Input the tile of the event");
+        event.setTitle(txtUtils.readString());
+        System.out.println("Input the description of the event");
+        event.setDescription(txtUtils.readString());
+        System.out.println("Input the location of the event");
+        event.setLocation(txtUtils.readString());
+        System.out.println("Input the category");
+        event.setCategory(txtUtils.readString());
+        System.out.println("Input the start date");
+        event.setStartDate(txtUtils.readDate());
+
         //adds the event to the list of events
     }
-    
-    public void addEvent(BeerEvent b){
-        if(events.contains(b))
+
+    public void addEvent(BeerEvent b) {
+        if (events.contains(b)) {
             System.out.println("Event already present");
-        else 
+        } else {
             events.add(b);
+        }
     }
-    
-    public void deleteEvent(){
-        
+
+    public void deleteEvent() {
+
     }
-    
-    private int choiceMenu(){
+
+    private int choiceMenu() {
         System.out.println("What would you like to do?");
         System.out.println("1)Add event");
         System.out.println("2)Delete event");
         System.out.println("3)View events");
-        int choice = sc.nextInt();
+        int choice = txtUtils.readInt();
         return choice;
     }
 }
