@@ -1,5 +1,6 @@
 package com.beer;
 
+import calendar.api.CalendarEventException;
 import java.time.LocalDate;
 
 /**
@@ -18,13 +19,6 @@ public class BeerEvent implements calendar.api.CalendarEvent {
     private BeerEvent() {
     }
 
-//    public BeerEvent(String title, LocalDate startDate, LocalDate endDate, String category, String location) {
-//        this.title = title;
-//        this.startDate = startDate;
-//        this.endDate = endDate;
-//        this.category = category;
-//        this.location = location;
-//    }
     //implementing the BuilderPattern design
     public static class Builder {
 
@@ -91,7 +85,7 @@ public class BeerEvent implements calendar.api.CalendarEvent {
     }
 
     @Override
-    public String getLocation() {
+    public String getLocation() throws CalendarEventException {
         return location;
     }
 

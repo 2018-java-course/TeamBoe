@@ -39,6 +39,14 @@ public class MainClass {
                 .setStartDate(LocalDate.now())
                 .setEndDate(LocalDate.now().plusDays(1))
                 .build());
+        bManager.addEvent(new BeerEvent.Builder()
+                .setTitle("oktober")
+                .setCategory("Fun")
+                .setDescription("beer and beer")
+                .setLocation("berlin")
+                .setStartDate(LocalDate.now())
+                .setEndDate(LocalDate.now().plusDays(2))
+                .build());
 
         bManager.populate(events);
     }

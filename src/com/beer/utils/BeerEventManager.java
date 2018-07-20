@@ -1,6 +1,7 @@
 package com.beer.utils;
 
 import calendar.api.CalendarEvent;
+import calendar.api.CalendarEventException;
 import com.beer.*;
 import java.util.ArrayList;
 
@@ -78,7 +79,13 @@ public class BeerEventManager implements calendar.api.CalendarEventDatabase {
         final String location = txtUtils.readString();
 
         //checks if the event exists and deletes it from the list
-        boolean remove = events.removeIf(e -> e.getTitle().equals(name) && e.getLocation().equals(location));
+        boolean remove = events.removeIf(e -> {
+            try {
+                return e.getTitle().equals(name) && e.getLocation().equals(location);
+            } catch (CalendarEventException ex) {
+                return false;
+            }
+        });
         if (remove) {
             System.out.println("Event removed!");
         } else {
