@@ -35,6 +35,7 @@ public class BeerEventManager implements calendar.api.CalendarEventDatabase {
                     break;
                 default:
                     System.out.println("Input not valid!");
+                    choice = 0;
             }
         }
 
@@ -63,7 +64,7 @@ public class BeerEventManager implements calendar.api.CalendarEventDatabase {
 
     public void addEvent(BeerEvent b) {
         if (events.contains(b)) {
-            System.out.println("Event already present");
+            System.out.println("Event already present!");
         } else {
             events.add(b);
         }
@@ -77,25 +78,14 @@ public class BeerEventManager implements calendar.api.CalendarEventDatabase {
         final String location = txtUtils.readString();
 
         //checks if the event exists and deletes it from the list
-        boolean remove = false;
-        events.forEach(e -> {
-            if (e.getTitle().equals(name) && e.getLocation().equals(location)) {
-                setTrue(remove);
-            }
-        });
-        //removes it from the list
+        boolean remove = events.removeIf(e -> e.getTitle().equals(name) && e.getLocation().equals(location));
         if (remove) {
-            events.removeIf(e -> e.getTitle().equals(name) && e.getLocation().equals(location));
             System.out.println("Event removed!");
         } else {
             System.out.println("Nothing to remove!");
         }
         viewEvents();
 
-    }
-
-    private void setTrue(boolean remove) {
-        remove = true;
     }
 
     private int choiceMenu() {
@@ -109,8 +99,8 @@ public class BeerEventManager implements calendar.api.CalendarEventDatabase {
     }
 
     public void viewEvents() {
-        System.out.println("#######Events#######");
+        System.out.println("\n#######Events#######");
         events.forEach(b -> System.out.println(b.toString()));
-        System.out.println("#######End#######");
+        System.out.println("#######End#######\n");
     }
 }

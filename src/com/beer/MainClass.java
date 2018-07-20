@@ -3,6 +3,7 @@ package com.beer;
 import calendar.api.*;
 import java.util.ArrayList;
 import com.beer.utils.BeerEventManager;
+import java.time.LocalDate;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -31,10 +32,12 @@ public class MainClass {
         BeerEventManager bManager = new BeerEventManager();
         ArrayList<CalendarEvent> events = new ArrayList<>();
         bManager.addEvent(new BeerEvent.Builder()
-                .setTitle("beerfest")
-                .setCategory("fun")
-                .setDescription("a festival")
-                .setLocation("naples")
+                .setTitle("Beerfest")
+                .setCategory("Fun")
+                .setDescription("A festival")
+                .setLocation("Naples")
+                .setStartDate(LocalDate.now())
+                .setEndDate(LocalDate.now().plusDays(1))
                 .build());
 
         bManager.populate(events);
