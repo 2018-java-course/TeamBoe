@@ -46,7 +46,7 @@ public class BeerEventManager implements calendar.api.CalendarEventDatabase {
         //TODO
         BeerEvent.Builder event = new BeerEvent.Builder();
 
-        System.out.println("Input the tile of the event");
+        System.out.println("Input the title of the event");
         event.setTitle(txtUtils.readString());
         System.out.println("Input the description of the event");
         event.setDescription(txtUtils.readString());
@@ -60,6 +60,7 @@ public class BeerEventManager implements calendar.api.CalendarEventDatabase {
         event.setEndDate(txtUtils.readDate());
 
         //builds the event and adds it to the list
+        System.out.println("Event added!");
         events.add(event.build());
     }
 
