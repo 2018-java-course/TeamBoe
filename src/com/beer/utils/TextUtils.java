@@ -3,7 +3,6 @@ package com.beer.utils;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
-import java.util.regex.Pattern;
 
 /**
  *
@@ -41,8 +40,7 @@ public class TextUtils {
         text = sc.nextLine();
 
         //asks input until it gets a valid int
-        for (; (Pattern.matches("[a-zA-Z]+", text) == true
-                && text.length() <= 2);) {
+        for (; !text.matches("[0-9]+");) {
             System.out.println("Number not valid!");
             System.out.print("> ");
             text = sc.nextLine();
