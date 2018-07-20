@@ -53,7 +53,7 @@ public class TextUtils {
     public LocalDate readDate() {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         String date = "";
-        System.out.println("valid date ex. d-m-y");
+        System.out.println("(valid date ex. d-m-y)");
         date = readString();
         LocalDate myDate = LocalDate.parse(date, dtf);
         return myDate;
