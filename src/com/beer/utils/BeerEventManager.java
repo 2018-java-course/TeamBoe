@@ -3,6 +3,7 @@ package com.beer.utils;
 import calendar.api.CalendarEvent;
 import calendar.api.CalendarEventException;
 import com.beer.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 /**
@@ -14,8 +15,7 @@ public class BeerEventManager implements calendar.api.CalendarEventDatabase {
     private ArrayList<BeerEvent> events = new ArrayList<>();
     private TextUtils txtUtils = TextUtils.getInstance();
 
-    @Override
-    public void populate(ArrayList<CalendarEvent> events) {
+    public void populateManually(ArrayList<CalendarEvent> events) {
         int choice = 0;
         for (; choice >= 0 && choice <= 3;) {
             choice = choiceMenu();
@@ -109,5 +109,26 @@ public class BeerEventManager implements calendar.api.CalendarEventDatabase {
         System.out.println("\n#######Events#######");
         events.forEach(b -> System.out.println(b.toString()));
         System.out.println("#######End#######\n");
+    }
+
+    @Override
+    public void populate(ArrayList<CalendarEvent> arrayToPopulate) {
+        this.events.add(new BeerEvent.Builder()
+                .setTitle("Beerfest")
+                .setCategory("Fun")
+                .setDescription("A festival")
+                .setLocation("Naples")
+                .setStartDate(LocalDate.now())
+                .setEndDate(LocalDate.now().plusDays(1))
+                .build());
+        this.events.add(new BeerEvent.Builder()
+                .setTitle("oktober")
+                .setCategory("Fun")
+                .setDescription("beer and beer")
+                .setLocation("berlin")
+                .setStartDate(LocalDate.now())
+                .setEndDate(LocalDate.now().plusDays(2))
+                .build());
+        this.events.forEach(e -> arrayToPopulate.add(e));
     }
 }
