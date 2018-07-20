@@ -77,9 +77,25 @@ public class BeerEventManager implements calendar.api.CalendarEventDatabase {
         final String location = txtUtils.readString();
 
         //checks if the event exists and deletes it from the list
-        events.removeIf(e -> e.getTitle().equals(name) && e.getLocation().equals(location));
+        boolean remove = false;
+        events.forEach(e -> {
+            if (e.getTitle().equals(name) && e.getLocation().equals(location)) {
+                setTrue(remove);
+            }
+        });
+        //removes it from the list
+        if (remove) {
+            events.removeIf(e -> e.getTitle().equals(name) && e.getLocation().equals(location));
+            System.out.println("Event removed!");
+        } else {
+            System.out.println("Nothing to remove!");
+        }
         viewEvents();
 
+    }
+
+    private void setTrue(boolean remove) {
+        remove = true;
     }
 
     private int choiceMenu() {
