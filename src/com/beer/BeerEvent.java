@@ -6,7 +6,7 @@ import java.time.LocalDate;
  *
  * @author PC17
  */
-public class BeerEvent implements calendar.api.CalendarEvent, calendar.api.Displayable {
+public class BeerEvent implements calendar.api.CalendarEvent {
 
     private String title;
     private LocalDate startDate;

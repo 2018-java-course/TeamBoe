@@ -16,23 +16,26 @@ public class BeerEventManager implements calendar.api.CalendarEventDatabase {
     @Override
     public void populate(ArrayList<CalendarEvent> events) {
         int choice = 0;
-        for (; choice <= 0 || choice >= 4;) {
+        for (; choice >= 0 && choice <= 3;) {
             choice = choiceMenu();
-        }
-
-        //handling the various choices
-        switch (choice) {
-            case 1:
-                addEvent();
-                break;
-            case 2:
-                deleteEvent();
-                break;
-            case 3:
-                viewEvents();
-                break;
-            default:
-                System.out.println("Input not valid!");
+            //handling the various choices
+            switch (choice) {
+                case 0:
+                    System.out.println("Goodbye..");
+                    choice = -1;
+                    break;
+                case 1:
+                    addEvent();
+                    break;
+                case 2:
+                    deleteEvent();
+                    break;
+                case 3:
+                    viewEvents();
+                    break;
+                default:
+                    System.out.println("Input not valid!");
+            }
         }
 
     }
@@ -84,6 +87,7 @@ public class BeerEventManager implements calendar.api.CalendarEventDatabase {
         System.out.println("1)Add event");
         System.out.println("2)Delete event");
         System.out.println("3)View events");
+        System.out.println("0)Exit");
         int choice = txtUtils.readInt();
         return choice;
     }
